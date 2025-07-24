@@ -1,0 +1,68 @@
+openapi: 3.0.0
+info:
+  title: GitHubService API
+  version: 1.0.0
+  description: API for interacting with GitHub issues via SAP CAP service
+paths:
+  /odata/v4/git-hub/Issue:
+    get:
+      summary: Get list of GitHub issues
+      responses:
+        '200':
+          description: A list of GitHub issues
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  '@odata.context':
+                    type: string
+                    example: $metadata#Issue
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Issue'
+  /odata/v4/git-hub/createIssue:
+    post:
+      summary: Create a new GitHub issue
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                body:
+                  type: string
+              required:
+              - title
+              - body
+      responses:
+        '200':
+          description: The created GitHub issue
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Issue'
+components:
+  schemas:
+    Issue:
+      type: object
+      properties:
+        id:
+          type: string
+          example: '3220106249'
+        number:
+          type: integer
+          example: 5
+        title:
+          type: string
+          example: Test Issue from REST Client
+        state:
+          type: string
+          example: open
+        url:
+          type: string
+          example: https://github.com/xxx/zZZz/issues/5

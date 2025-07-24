@@ -1,0 +1,83 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "GitHubService API",
+    "version": "1.0.0",
+    "description": "OpenAPI specification for the GitHubService CAP CDS API"
+  },
+  "paths": {
+    "/odata/v4/git-hub/Issue": {
+      "get": {
+        "summary": "Get GitHub Issues",
+        "responses": {
+          "200": {
+            "description": "List of GitHub Issues",
+            "content": {
+              "application/json": {
+                "example": {
+                  "@odata.context": "$metadata#Issue",
+                  "value": [
+                    {
+                      "id": "3260006249",
+                      "number": 5,
+                      "title": "Test Issue from REST Client",
+                      "state": "open",
+                      "url": "https://github.com/xxx/zZZz/issues/5"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/odata/v4/git-hub/createIssue": {
+      "post": {
+        "summary": "Create a new GitHub Issue",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "body": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "title",
+                  "body"
+                ]
+              },
+              "example": {
+                "title": "Test Issue from REST Client",
+                "body": "This issue was created using the VSCode REST Client."
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Created GitHub Issue",
+            "content": {
+              "application/json": {
+                "example": {
+                  "id": "3260006249",
+                  "number": 5,
+                  "title": "Test Issue from REST Client",
+                  "state": "open",
+                  "url": "https://github.com/xxx/zZZz/issues/5"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

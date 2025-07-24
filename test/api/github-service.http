@@ -1,0 +1,16 @@
+@host = localhost:4004
+###
+# GET Issues
+GET http://{{host}}/odata/v4/git-hub/Issue HTTP/1.1
+Accept: application/json
+
+###
+# POST new Issue
+POST http://{{host}}/odata/v4/git-hub/createIssue HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "title": "Test Issue from REST Client",
+  "body": "This issue was created using the VSCode REST Client."
+}

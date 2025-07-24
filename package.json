@@ -1,0 +1,36 @@
+{
+  "name": "cds-plugin-github",
+  "author": {
+    "name": "Sebastian Vogel",
+    "email": "sebastian.vogel@cloudicator.de"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "version": "0.9.0",
+  "main": "srv/github-service.js",
+  "files": [
+    "srv",
+    "api.yml"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "cds run"
+  },
+  "peerDependencies": {
+    "@cap-js/cds-types": ">=10",
+    "@sap/cds": ">=8",
+    "@sap/cds-dk": ">=8",
+    "axios": ">=1.6.*"
+  },
+  "devDependencies": {
+    "@cap-js/cds-types": "^0.13.0",
+    "@sap/cds": "^9.1.0",
+    "@sap/cds-dk": "^9.1.1",
+    "@types/node": "^24.1.0",
+    "axios": "^1.6.0",
+    "dotenv": "^16.0.3",
+    "typescript": "^5.0.0"
+  }
+}
