@@ -19,10 +19,9 @@
     "start": "cds run"
   },
   "peerDependencies": {
-    "@cap-js/cds-types": ">=10",
     "@sap/cds": ">=8",
     "@sap/cds-dk": ">=8",
-    "axios": ">=1.6.*"
+    "axios": ">=1.6"
   },
   "devDependencies": {
     "@cap-js/cds-types": "^0.13.0",
