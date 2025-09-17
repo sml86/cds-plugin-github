@@ -9,14 +9,16 @@
     "url": ""
   },
   "version": "0.9.1",
-  "main": "srv/github-service.js",
+  "main": "lib/github-service.js",
   "files": [
-    "srv",
+    "lib",
     "api.yml"
   ],
   "scripts": {
     "build": "tsc",
-    "start": "cds run"
+    "start": "cds serve ./lib/github-service.cds",
+    "prepublish": "npm run build",
+    "prepack": "npm run build"
   },
   "peerDependencies": {
     "@sap/cds": ">=8",
@@ -30,6 +32,15 @@
     "@types/node": "^24.1.0",
     "axios": "^1.6.0",
     "dotenv": "^16.0.3",
+    "tsx": "^4.20.3",
     "typescript": "^5.0.0"
+  },
+  "cds": {
+    "i18n": {
+      "folders": [
+        "./lib/i18n"
+      ],
+      "default_language": "en"
+    }
   }
 }

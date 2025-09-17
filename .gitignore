@@ -1,4 +1,6 @@
 .env
+lib/*.js
 node_modules
 dist
 gen
+*.tgz

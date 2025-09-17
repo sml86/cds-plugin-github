@@ -1,7 +1,27 @@
 @host = localhost:4004
+
+###
+# GET Metadata
+GET http://{{host}}/odata/v4/git-hub/$metadata HTTP/1.1
+Accept: application/json
+
 ###
 # GET Issues
-GET http://{{host}}/odata/v4/git-hub/Issue HTTP/1.1
+GET http://{{host}}/odata/v4/git-hub/Issue?$count=true&$top=10 HTTP/1.1
+Accept: application/json
+
+###
+# GET Issues Count
+GET http://{{host}}/odata/v4/git-hub/Issue/$count HTTP/1.1
+Accept: application/json
+
+###
+# GET Issues with filter
+GET http://{{host}}/odata/v4/git-hub/Issue?$count=true&$filter=state%20eq%20'open'%20and%20label%20eq%20'Test'%20and%20'assignee'%20eq%20'x-sebvogel'
+
+###
+# GET Issue 324
+GET http://{{host}}/odata/v4/git-hub/Issue/324 HTTP/1.1
 Accept: application/json
 
 ###

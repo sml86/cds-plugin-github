@@ -1,0 +1,8 @@
+@repo_owner={{$dotenv GITHUB_REPO_OWNER}}
+@repo_name={{$dotenv GITHUB_REPO_NAME}}
+@token={{$dotenv GITHUB_TOKEN}}
+###
+# GET Issues from GitHub
+GET https://api.github.com/repos/{{repo_owner}}/{{repo_name}}/issues HTTP/1.1
+Authorization: Bearer {{token}}
+Accept: application/vnd.github+json
